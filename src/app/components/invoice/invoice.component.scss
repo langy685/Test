@@ -1,8 +1,9 @@
 .invoice {
-  border: 1px solid green;
-  padding-left: 5px;
-  padding-right: 5px;
-  height: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 30px;
+  line-height: 30px;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 .not-found {
@@ -11,6 +12,7 @@
 
 .name {
   float: left;
+  font-weight: bold;
 }
 
 .price {
