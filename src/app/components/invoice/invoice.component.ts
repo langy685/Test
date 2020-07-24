@@ -31,4 +31,8 @@ export class InvoiceComponent implements OnInit, OnDestroy {
     )
   }
 
+  private isInvoicePaid() {
+    return this.invoice.price > 0.5;
+  }
+
 }

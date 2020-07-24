@@ -1,3 +1,5 @@
 <div class="invoice" [ngClass]="{'not-found': !found}">
-  {{invoice.index}}. {{invoice.name}} {{invoice.price}}
+
+  <span class="name">{{invoice.index}}. {{invoice.name}}</span>
+  <span class="price">{{invoice.price}}</span>
 </div>
