@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angula
 import {SubSink} from "subsink";
 
 import {Invoice} from "../../models/invoice";
-import {InvoiceManagerService} from "../../../services/invoice-manager.service";
+import {InvoiceManagerService} from "../../services/invoice-manager/invoice-manager.service";
 
 @Component({
   selector: 'app-invoice',

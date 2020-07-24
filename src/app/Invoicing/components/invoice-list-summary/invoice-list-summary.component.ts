@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import {SubSink} from "subsink";
 
-import {InvoiceManagerService} from "../../../services/invoice-manager.service";
+import {InvoiceManagerService} from "../../services/invoice-manager/invoice-manager.service";
 
 @Component({
   selector: 'app-invoice-list-summary',

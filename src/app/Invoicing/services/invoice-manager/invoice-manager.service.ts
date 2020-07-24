@@ -2,11 +2,9 @@ import { Injectable } from '@angular/core';
 
 import {BehaviorSubject} from "rxjs";
 
-import {InvoiceState} from "../Invoicing/models/invoice";
+import {InvoiceState} from "../../models/invoice";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class InvoiceManagerService {
 
   private invoiceAddedSubject = new BehaviorSubject<string>('');

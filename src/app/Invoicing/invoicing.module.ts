@@ -13,9 +13,10 @@ import {InvoiceListSummaryComponent} from "./components/invoice-list-summary/inv
 import {InvoiceComponent} from "./components/invoice/invoice.component";
 import { routes } from './invoicing-routes';
 import {InvoiceDispatchersService} from "./state/services/invoice-dispatchers.service";
+import {InvoiceManagerService} from "./services/invoice-manager/invoice-manager.service";
 import {InvoiceSelectorsService} from "./state/services/invoice-selectors.service";
 import {invoicesReducer} from "./state/reducers/invoice.reducer";
-import {InvoiceToolsService} from "./services/invoice-tools.service";
+import {InvoiceToolsService} from "./services/invoices-tools/invoice-tools.service";
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import {InvoiceToolsService} from "./services/invoice-tools.service";
   ],
   providers: [
     InvoiceToolsService,
+    InvoiceManagerService,
     InvoiceDispatchersService,
     InvoiceSelectorsService
   ]

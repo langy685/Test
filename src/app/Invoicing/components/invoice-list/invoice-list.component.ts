@@ -3,8 +3,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SubSink} from "subsink";
 
 import {Invoice, InvoiceState} from "../../models/invoice";
-import {InvoiceManagerService} from "../../../services/invoice-manager.service";
-import {InvoiceToolsService} from "../../services/invoice-tools.service";
+import {InvoiceManagerService} from "../../services/invoice-manager/invoice-manager.service";
+import {InvoiceToolsService} from "../../services/invoices-tools/invoice-tools.service";
 
 @Component({
   selector: 'app-invoice-list',
