@@ -11,10 +11,9 @@ import {InvoiceManagerService} from "../../services/invoice-manager.service";
 export class InvoiceComponent implements OnInit, OnDestroy {
 
   @Input() invoice:Invoice;
-  @Output() visibleChanged = new EventEmitter<boolean>();
+  @Output() visibleChanged = new EventEmitter();
 
   subs = new SubSink();
-  found: boolean;
 
   constructor(private invoiceManagerService: InvoiceManagerService) { }
 
@@ -29,8 +28,8 @@ export class InvoiceComponent implements OnInit, OnDestroy {
   private subscribeToInvoiceSearch() {
     this.subs.sink = this.invoiceManagerService.invoiceSearch$.subscribe(
       invoiceName => {
-        this.found = this.invoice.name.includes(invoiceName);
-        this.visibleChanged.emit(this.found);
+        this.invoice.visible = this.invoice.name.includes(invoiceName);
+        this.visibleChanged.emit();
       }
     )
   }

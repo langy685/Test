@@ -1,4 +1,4 @@
-<div class="invoice" [ngClass]="{'not-found': !found}">
+<div class="invoice" [ngClass]="{'not-found': !invoice.visible}">
 
   <span class="name">{{invoice.index}}. {{invoice.name}}</span>
   <span class="price">{{invoice.price}}</span>

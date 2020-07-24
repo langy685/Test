@@ -61,7 +61,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   }
 
   private invoiceVisibilityChanged() {
-
+    this.invoiceManagerService.invoicesStateChanged(this.getInvoicesState());
   }
 
   private createInvoice(index:number, name: string): Invoice {
