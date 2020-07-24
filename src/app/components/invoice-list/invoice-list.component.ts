@@ -27,13 +27,13 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   }
 
   private initInvoices() {
-    for(let i=1;i<=300;i++) {
+    for(let i=1;i<=500;i++) {
       this.invoices.push(this.createInvoice(i, this.randomString()));
     }
   }
 
   private randomNumber(min, max) {
-    return (Math.random() * (max - min) + min).toFixed(2);
+    return (Math.random() * (max - min) + min).toFixed(1);
   }
 
   private randomString() {
@@ -44,7 +44,9 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   private subscribeToInvoiceAdded() {
     this.subs.sink = this.invoiceManagerService.invoiceAdded$.subscribe(
       invoiceName => {
-        this.invoices.push(this.createInvoice(this.invoices.length + 1, invoiceName))
+        if (invoiceName !== ''){
+          this.invoices.splice(0, 0, this.createInvoice(this.invoices.length + 1, invoiceName))
+        }
       }
     )
   }
