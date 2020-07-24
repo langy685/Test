@@ -14,6 +14,6 @@ const reducer = createReducer(
     (state, action) => ({...state, searchedText: action.text}))
 )
 
-export function productsReducer(state: InvoicesState | undefined, action: Action) {
+export function invoicesReducer(state: InvoicesState | undefined, action: Action) {
   return reducer(state, action);
 }

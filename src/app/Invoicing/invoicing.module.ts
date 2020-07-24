@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 
+import {StoreModule} from "@ngrx/store";
+
 import {AddInvoiceComponent} from "./components/add-invoice/add-invoice.component";
 import {InvoiceListSearchComponent} from "./components/invoice-list-search/invoice-list-search.component";
 import {InvoicingComponent} from "./components/invoicing/invoicing.component";
@@ -12,12 +14,17 @@ import {InvoiceComponent} from "./components/invoice/invoice.component";
 import { routes } from './invoicing-routes';
 import {InvoiceDispatchersService} from "./state/services/invoice-dispatchers.service";
 import {InvoiceSelectorsService} from "./state/services/invoice-selectors.service";
+import {invoicesReducer} from "./state/reducers/invoice.reducer";
 
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     CommonModule,
+    StoreModule.forFeature('invoices',
+      {
+        invoices: invoicesReducer,
+      }),
   ],
   declarations: [
     InvoicingComponent,
