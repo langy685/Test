@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import {Store} from "@ngrx/store";
 
-import {State} from "../invoice-state";
 import {Invoice} from "../../models/invoice";
+import {State} from "../invoice-state";
 
 import * as invoiceActions from "../actions/invoice-actions"
 

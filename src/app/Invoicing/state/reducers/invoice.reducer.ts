@@ -1,6 +1,6 @@
 import {Action, createReducer, on} from "@ngrx/store";
-import {initialInvoicesState, InvoicesState} from "../invoice-state";
 
+import {initialInvoicesState, InvoicesState} from "../invoice-state";
 import * as invoiceActions from "../actions/invoice-actions";
 
 const reducer = createReducer(
