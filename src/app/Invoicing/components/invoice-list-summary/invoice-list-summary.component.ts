@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {InvoiceManagerService} from "../../services/invoice-manager.service";
+import {InvoiceManagerService} from "../../../services/invoice-manager.service";
 
 import {SubSink} from "subsink";
 

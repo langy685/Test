@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import {InvoicingComponent} from "./components/invoicing/invoicing.component";
+import {InvoicingComponent} from "./Invoicing/components/invoicing/invoicing.component";
 import {WelcomeComponent} from "./components/welcome/welcome.component";
 
 const routes: Routes = [
@@ -16,7 +16,11 @@ const routes: Routes = [
   },
   {
     path: 'invoices',
-    component: InvoicingComponent ,
+    loadChildren: () => import(
+      '../app/Invoicing/invoicing.module'
+      ).then(
+      m => m.InvoicingModule
+    )
   },
 ];
 

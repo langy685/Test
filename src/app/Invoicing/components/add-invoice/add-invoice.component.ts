@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {InvoiceManagerService} from "../../services/invoice-manager.service";
+import {InvoiceManagerService} from "../../../services/invoice-manager.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
