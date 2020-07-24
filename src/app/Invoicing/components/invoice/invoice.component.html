@@ -1,5 +1,5 @@
 <div class="invoice" [ngClass]="{'not-found': !invoice.visible}">
   <span class="name">{{invoice.index}}. {{invoice.name}}</span>
-  <span *ngIf="isInvoicePaid()" class="badge badge-success price">Zaplatená</span>
-  <span *ngIf="!isInvoicePaid()" class="badge badge-primary price">Vytvorená</span>
+  <span *ngIf="isInvoicePaid()" class="badge badge-success align-middle price">Zaplatená</span>
+  <span *ngIf="!isInvoicePaid()" class="badge badge-primary align-middle price">Vytvorená</span>
 </div>
