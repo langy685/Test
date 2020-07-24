@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InvoiceListSummaryComponent implements OnInit {
 
+  paidCount:number;
+  unpaidCount:number;
+
   constructor() { }
 
   ngOnInit() {
