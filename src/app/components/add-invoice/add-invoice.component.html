@@ -1,0 +1,8 @@
+<ng-container [formGroup]="invoiceForm">
+  <div class="add-invoice">
+    <input class="add" type="text" placeholder="Pridať faktúru" formControlName="name">
+  </div>
+  <div class="add-btn">
+    <button type="button" (click)="addInvoice()">Pridať faktúru</button>
+  </div>
+</ng-container>

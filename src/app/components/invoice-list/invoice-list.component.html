@@ -1,0 +1,6 @@
+<p>List works!</p>
+<div class="invoices">
+  <div *ngFor="let item of invoices;let i = index">
+    <app-invoice [invoice]="item"></app-invoice>
+  </div>
+</div>
