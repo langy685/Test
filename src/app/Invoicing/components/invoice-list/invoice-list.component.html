@@ -1,4 +1,4 @@
-<div class="invoices">
+<div>
   <div *ngFor="let item of invoices;let i = index">
     <app-invoice [invoice]="item" (visibleChanged)="invoiceVisibilityChanged()"></app-invoice>
   </div>
