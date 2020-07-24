@@ -15,6 +15,7 @@ import { routes } from './invoicing-routes';
 import {InvoiceDispatchersService} from "./state/services/invoice-dispatchers.service";
 import {InvoiceSelectorsService} from "./state/services/invoice-selectors.service";
 import {invoicesReducer} from "./state/reducers/invoice.reducer";
+import {InvoiceToolsService} from "./services/invoice-tools.service";
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import {invoicesReducer} from "./state/reducers/invoice.reducer";
     AddInvoiceComponent
   ],
   providers: [
+    InvoiceToolsService,
     InvoiceDispatchersService,
     InvoiceSelectorsService
   ]

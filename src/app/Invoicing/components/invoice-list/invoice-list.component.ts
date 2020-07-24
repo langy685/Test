@@ -4,6 +4,7 @@ import {SubSink} from "subsink";
 
 import {Invoice, InvoiceState} from "../../models/invoice";
 import {InvoiceManagerService} from "../../../services/invoice-manager.service";
+import {InvoiceToolsService} from "../../services/invoice-tools.service";
 
 @Component({
   selector: 'app-invoice-list',
@@ -16,7 +17,8 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
 
   private subs = new SubSink();
 
-  constructor(private invoiceManagerService: InvoiceManagerService) {
+  constructor(private invoiceManagerService: InvoiceManagerService,
+              private invoiceTools: InvoiceToolsService) {
   }
 
   ngOnInit() {
@@ -30,17 +32,9 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
 
   private initInvoices() {
     for (let i = 1; i <= 500; i++) {
-      this.invoices.push(this.createInvoice(i, this.randomString()));
+      this.invoices.push(this.createInvoice(i, this.invoiceTools.getRandomString()));
     }
     this.invoiceManagerService.invoicesStateChanged(this.getInvoicesState());
-  }
-
-  private randomNumber(min, max) {
-    return (Math.random() * (max - min) + min).toFixed(1);
-  }
-
-  private randomString() {
-    return Math.random().toString(36).substring(5);
   }
 
   private getInvoicesState(): InvoiceState {
@@ -74,7 +68,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   }
 
   private createInvoice(index: number, name: string): Invoice {
-    return ({index, name, price: this.randomNumber(0, 1), visible: true}) as Invoice;
+    return ({index, name, price: this.invoiceTools.getRandomNumber(0,1), visible: true}) as Invoice;
   }
 
 }
