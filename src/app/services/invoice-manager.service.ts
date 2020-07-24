@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import {BehaviorSubject} from "rxjs";
+import {InvoiceState} from "../models/invoice";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,9 @@ export class InvoiceManagerService {
   private invoiceSearchSubject = new BehaviorSubject<string>('');
   invoiceSearch$ = this.invoiceSearchSubject.asObservable();
 
+  private invoicesStateSubject = new BehaviorSubject<InvoiceState>(null);
+  invoicesState$ = this.invoicesStateSubject.asObservable();
+
   constructor() { }
 
   invoiceAdded(text:string) {
@@ -21,5 +25,9 @@ export class InvoiceManagerService {
 
   invoiceSearch(text:string) {
     this.invoiceSearchSubject.next(text);
+  }
+
+  invoicesStateChanged(state: InvoiceState) {
+    this.invoicesStateSubject.next(state);
   }
 }

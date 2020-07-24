@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {Invoice} from "../../models/invoice";
 import {SubSink} from "subsink";
 import {InvoiceManagerService} from "../../services/invoice-manager.service";
@@ -11,6 +11,7 @@ import {InvoiceManagerService} from "../../services/invoice-manager.service";
 export class InvoiceComponent implements OnInit, OnDestroy {
 
   @Input() invoice:Invoice;
+  @Output() visibleChanged = new EventEmitter<boolean>();
 
   subs = new SubSink();
   found: boolean;
@@ -27,12 +28,15 @@ export class InvoiceComponent implements OnInit, OnDestroy {
 
   private subscribeToInvoiceSearch() {
     this.subs.sink = this.invoiceManagerService.invoiceSearch$.subscribe(
-      invoiceName => this.found = this.invoice.name.includes(invoiceName)
+      invoiceName => {
+        this.found = this.invoice.name.includes(invoiceName);
+        this.visibleChanged.emit(this.found);
+      }
     )
   }
 
   private isInvoicePaid() {
-    return this.invoice.price > 0.5;
+    return this.invoice.price > 0.5 && this.invoice.visible;
   }
 
 }

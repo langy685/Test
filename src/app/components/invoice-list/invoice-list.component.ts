@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {Invoice} from "../../models/invoice";
+import {Invoice, InvoiceState} from "../../models/invoice";
 import {InvoiceManagerService} from "../../services/invoice-manager.service";
 import {SubSink} from "subsink";
 
@@ -30,6 +30,7 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
     for(let i=1;i<=500;i++) {
       this.invoices.push(this.createInvoice(i, this.randomString()));
     }
+    this.invoiceManagerService.invoicesStateChanged(this.getInvoicesState());
   }
 
   private randomNumber(min, max) {
@@ -37,8 +38,15 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
   }
 
   private randomString() {
-    let str = Math.random().toString(36).substring(5);
-    return str;
+    return Math.random().toString(36).substring(5);
+  }
+
+  private getInvoicesState(): InvoiceState {
+    let paid = this.invoices.filter(inv => inv.price > 0.5 && inv.visible).length;
+    let unpaid = this.invoices.filter(inv => inv.price <= 0.5 && inv.visible).length;
+    console.log('paid', paid);
+    console.log('unpaid', unpaid);
+    return { paid, unpaid};
   }
 
   private subscribeToInvoiceAdded() {
@@ -46,13 +54,18 @@ export class InvoiceListComponent implements OnInit, OnDestroy {
       invoiceName => {
         if (invoiceName !== ''){
           this.invoices.splice(0, 0, this.createInvoice(this.invoices.length + 1, invoiceName))
+          this.invoiceManagerService.invoicesStateChanged(this.getInvoicesState());
         }
       }
     )
   }
 
+  private invoiceVisibilityChanged() {
+
+  }
+
   private createInvoice(index:number, name: string): Invoice {
-    return ({index, name, price:this.randomNumber(0,1)}) as Invoice;
+    return ({index, name, price:this.randomNumber(0,1), visible:true}) as Invoice;
   }
 
 }
