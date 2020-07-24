@@ -1,2 +1,10 @@
-//@import "../../../../node_modules/bootstrap/scss/navbar";
-//@import "../../bootstrap/variables";
+.secondary-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+button {
+  margin-left: 10px;
+  color: green;
+}
