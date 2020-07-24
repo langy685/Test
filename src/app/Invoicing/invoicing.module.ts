@@ -10,6 +10,8 @@ import {InvoiceListComponent} from "./components/invoice-list/invoice-list.compo
 import {InvoiceListSummaryComponent} from "./components/invoice-list-summary/invoice-list-summary.component";
 import {InvoiceComponent} from "./components/invoice/invoice.component";
 import { routes } from './invoicing-routes';
+import {InvoiceDispatchersService} from "./state/services/invoice-dispatchers.service";
+import {InvoiceSelectorsService} from "./state/services/invoice-selectors.service";
 
 @NgModule({
   imports: [
@@ -25,8 +27,9 @@ import { routes } from './invoicing-routes';
     InvoiceComponent,
     AddInvoiceComponent
   ],
-  exports: [
-  ],
-  bootstrap: []
+  providers: [
+    InvoiceDispatchersService,
+    InvoiceSelectorsService
+  ]
 })
 export class InvoicingModule { }
