@@ -1,1 +1,6 @@
 <p>invoice-list-header works!</p>
+<ng-container [formGroup]="searchForm">
+  <div>
+    <input type="text" placeholder="Hladať" formControlName="search">
+  </div>
+</ng-container>

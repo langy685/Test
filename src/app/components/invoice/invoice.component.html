@@ -1,1 +1,3 @@
-<div class="invoice">{{invoice.index}}. {{invoice.name}} {{invoice.price}}</div>
+<div class="invoice" [ngClass]="{'not-found': !found}">
+  {{invoice.index}}. {{invoice.name}} {{invoice.price}}
+</div>
