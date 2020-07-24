@@ -4,35 +4,20 @@ import { Routes, RouterModule } from '@angular/router';
 import {InvoicingComponent} from "./components/invoicing/invoicing.component";
 import {WelcomeComponent} from "./components/welcome/welcome.component";
 
-
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/invoices',
+    redirectTo: '/welcome',
     pathMatch: 'full'
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent ,
   },
   {
     path: 'invoices',
     component: InvoicingComponent ,
   },
-  // {
-  //   path: 'invoices',
-  //   component: InvoicingComponent,
-  //   loadChildren: () => import(
-  //     './Invoicing/invoicing.module'
-  //     ).then(
-  //     m => m.InvoicingModule
-  //   )
-  // },
-  // {
-  //   path: 'not-found',
-  //   component: PageNotFoundComponent,
-  // },
-  {
-    path: '**',
-    redirectTo: 'not-found',
-    pathMatch: 'full'
-  }
 ];
 
 @NgModule({
